@@ -1,0 +1,69 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables
+
+.env
+.env.*
+*.env
+
+# Streamlit
+
+.streamlit/secrets.toml
+
+# Logs
+
+logs/
+*.log
+
+# Model Files / AI Artifacts
+
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.bin
+*.model
+
+# Data Files
+
+data/
+datasets/
+
+# Chat History / Generated Files
+
+chat_history.json
+*.db
+*.sqlite3
+
+# OS Files
+
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+
+dist/
+build/
+*.egg-info/
+
+# Jupyter
+
+.ipynb_checkpoints/

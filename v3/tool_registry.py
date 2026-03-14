@@ -51,18 +51,17 @@ FILE_OPERATIONS = {
     },
 
     "modify_file": {
-    "function": tools.modify_file,
-    "description": "Modify the content of a file by replacing it with new content.",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "filepath": {"type": "string"},
-            "new_content": {"type": "string"}
-        },
-        "required": ["filepath", "new_content"]
+        "function": tools.modify_file,
+        "description": "Modify the content of a file by replacing it with new content.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "filepath": {"type": "string"},
+                "new_content": {"type": "string"}
+            },
+            "required": ["filepath", "new_content"]
+        }
     }
-}
-
 }
 
 DIRECTORY_OPERATIONS = {
@@ -128,7 +127,7 @@ SEARCH_OPERATIONS = {
                 "extension": {"type": "string"},
                 "folder_path": {"type": "string"}
             },
-            "required": ["extension"]
+            "required": ["extension", "folder_path"]
         }
     }
 }
@@ -153,9 +152,9 @@ METADATA_OPERATIONS = {
         "parameters": {
             "type": "object",
             "properties": {
-                "filename": {"type": "string"}
+                "path": {"type": "string"}
             },
-            "required": ["filename"]
+            "required": ["path"]
         }
     },
 
@@ -167,7 +166,7 @@ METADATA_OPERATIONS = {
             "properties": {
                 "filename": {"type": "string"}
             },
-            "required": ["filename"]    
+            "required": ["filename"]
         },
     },
 }
@@ -184,7 +183,7 @@ ARCHIVE_OPERATIONS = {
                 "folder_path": {"type": "string"},
                 "output_zip": {"type": "string"}
             },
-            "required": ["folder_path"]
+            "required": ["folder_path", "output_zip"]
         }
     },
 
@@ -197,7 +196,7 @@ ARCHIVE_OPERATIONS = {
                 "zip_path": {"type": "string"},
                 "extract_to": {"type": "string"}
             },
-            "required": ["zip_path"]
+            "required": ["zip_path", "extract_to"]
         }
     }
 }
@@ -212,6 +211,31 @@ EXECUTE_OPERATIONS = {
                 "filepath": {"type": "string"}
             },
             "required": ["filepath"]
+        }
+    },
+    
+    "run_shell_command": {
+        "function": tools.run_shell_command,
+        "description": "Executes a shell command and returns its output.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "command": {"type": "string"},
+                "timeout": {"type": "integer", "description": "Timeout for the command in seconds."} 
+            },
+            "required": ["command"]
+        }
+    },
+    
+    "stop_process": {
+        "function": tools.stop_process, 
+        "description": "Stop a running process by its Process ID (PID).",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "pid": {"type": "string", "description": "The Process ID of the process to stop."}
+            },
+            "required": ["pid"]
         }
     }
 }
